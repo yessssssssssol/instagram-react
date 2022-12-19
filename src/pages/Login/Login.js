@@ -16,12 +16,7 @@ export default Login;
 const Login = () => {
   const navigate = useNavigate();
   const goToMain = () => {
-    if (response.message === 'valid user') {
-      navigate('/main');
-    } else {
-      alert('가입된 회원이 아닙니다. 회원가입을 먼저 해주세요.');
-      navigate('/signup');
-    }
+    navigate('/main');
   };
 
   return (
