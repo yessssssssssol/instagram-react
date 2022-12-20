@@ -3,6 +3,7 @@ import CommentAdd from './CommentAdd';
 
 const Comments = () => {
   const [comment, setComment] = useState('');
+
   const onChange = (e) => {
     setComment(e.target.value);
     console.log(e.target.value);
@@ -11,12 +12,12 @@ const Comments = () => {
   const createComment = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(setComment);
-  };
 
+    console.log(comment);
+  };
   return (
     <form id='commentForm'>
-      {setComment !== '' ? null : <CommentAdd setComment={setComment} />}
+      {comment === '' ? null : <CommentAdd comment={comment} />}
       <div id='commentInputForm'>
         <input
           onChange={onChange}

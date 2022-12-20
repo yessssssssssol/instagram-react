@@ -14,9 +14,18 @@ const Nav = () => {
         <input type='input' placeholder='검색' />
       </div>
       <div id='navRight'>
-        <img src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png' />
-        <img src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png' />
-        <img src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png' />
+        <img
+          src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png'
+          alt='exlore'
+        />
+        <img
+          src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
+          alt='heart'
+        />
+        <img
+          src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png'
+          alt='profile'
+        />
       </div>
     </nav>
   );
