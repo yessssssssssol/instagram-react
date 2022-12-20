@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import './styles/Reset.scss';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
