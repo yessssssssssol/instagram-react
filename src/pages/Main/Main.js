@@ -1,7 +1,7 @@
 import React from 'react';
 import MainSide from './MainSide';
 import Nav from '../../components/Nav/Nav';
-import Comments from './Comment';
+import Comments from './Comments';
 import './Main.scss';
 
 const Main = () => {

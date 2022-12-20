@@ -5,7 +5,7 @@ const MainSide = () => {
   return (
     <div className='side-main-right'>
       <div id='main-right-top' className='profile'>
-        <img className='profile-img' src='/images/1.jpeg' />
+        <img className='profile-img' src='/images/1.jpeg' alt='profileIMG' />
         <div className='id-location'>
           <div className='westagramId'>hellohaileyworld</div>
           <div className='westagramLocate'>Frontend 개발자</div>
@@ -19,7 +19,11 @@ const MainSide = () => {
         </div>
         <div className='story-list side-main-right'>
           <div className='story-list-item profile'>
-            <img className='profile-img' src='/images/IUprofile.jpeg' />
+            <img
+              className='profile-img'
+              src='/images/IUprofile.jpeg'
+              alt='userIMG'
+            />
             <div className='id-location'>
               <div className='westagramId'>dlwldms</div>
               <div className='westagramLocate'>가수</div>
