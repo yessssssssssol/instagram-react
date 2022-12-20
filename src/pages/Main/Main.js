@@ -1,10 +1,12 @@
 import React from 'react';
 import MainSide from './MainSide';
+import Nav from '../../components/Nav/Nav';
 import './Main.scss';
 
 const Main = () => {
   return (
     <div>
+      <Nav />
       <div>
         <main>
           <div id='feeds'>
