@@ -1,14 +1,13 @@
 import React from 'react';
 
-const CommentAdd = (props) => {
-  console.log(props);
+const CommentAdd = ({ comment }) => {
   return (
     <div>
       <ul id='commentList'>
         <li className='comment-list'>
           <div className='comment-list-form'>
             <span className='comment-list-id'> hellohaileyworld </span>
-            <span className='comment-list-item'>{props.comment}</span>
+            <span className='comment-list-item'>{comment}</span>
           </div>
           <div>
             <button type='button' className='edit-button'>
