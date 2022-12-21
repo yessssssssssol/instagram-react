@@ -11,22 +11,22 @@ const Comments = () => {
 
   const onKeyDown = (e) => {
     if (e.key === 'Enter') {
-      console.log(comment);
-      commentList.map(({ comment }) => <CommentAdd comment={comment} />);
     }
   };
+
   const createComment = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
     console.log(comment);
-
     setCommentList((commentList) => [...commentList, comment]);
-    console.log(commentList);
+    setComment('');
   };
-
   return (
     <form id='commentForm'>
+      {commentList.map((comment) => (
+        <CommentAdd comment={comment} />
+      ))}
       <div id='commentInputForm'>
         <input
           onChange={onChange}
