@@ -23,8 +23,8 @@ const Comments = () => {
   };
   return (
     <form id='commentForm'>
-      {commentList.map((comment) => (
-        <CommentAdd comment={comment} />
+      {commentList.map((comment, index) => (
+        <CommentAdd key={index} comment={comment} />
       ))}
       <div id='commentInputForm'>
         <input

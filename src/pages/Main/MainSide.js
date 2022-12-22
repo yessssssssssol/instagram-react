@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
 
 const MainSide = () => {
+  const [follow, setFollow] = useState(true);
+
+  const handleFollow = () => {
+    return setFollow(!follow);
+  };
   return (
     <div className='side-main-right'>
       <div id='main-right-top' className='profile'>
@@ -29,7 +34,15 @@ const MainSide = () => {
               <div className='westagramLocate'>가수</div>
             </div>
           </div>
-          <div className='follow-button'>팔로우</div>
+          {follow ? (
+            <button className='follow-button' onClick={handleFollow}>
+              팔로우
+            </button>
+          ) : (
+            <button className='follow-button' onClick={handleFollow}>
+              팔로잉
+            </button>
+          )}
         </div>
       </div>
 

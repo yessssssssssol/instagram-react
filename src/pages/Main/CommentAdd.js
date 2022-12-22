@@ -46,7 +46,7 @@ const CommentAdd = ({ comment }) => {
                 value={heart}
                 id='comment-like-btn'
                 src='images/liked.png'
-                alt='likeButton'
+                alt='likedButton'
               />
             )}
           </div>
