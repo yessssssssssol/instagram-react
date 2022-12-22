@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CommentAdd = ({ comment }) => {
+  const [heart, setHeart] = useState(true);
+
+  const handleHeartClick = () => {
+    return setHeart(!heart);
+  };
+
+  const onClickEdit = (e) => {};
+
+  const onClickDelete = (e) => {
+    return e.target.parentElement.parentElement.remove();
+  };
+
   return (
     <div>
       <ul id='commentList'>
@@ -10,13 +22,33 @@ const CommentAdd = ({ comment }) => {
             <span className='comment-list-item'>{comment}</span>
           </div>
           <div>
-            <button type='button' className='edit-button'>
+            <button onClick={onClickEdit} type='button' className='edit-button'>
               edit
             </button>
-            <button type='button' className='remove-button'>
+            <button
+              onClick={onClickDelete}
+              type='button'
+              className='remove-button'
+            >
               x
             </button>
-            <img id='comment-like-btn' src='images/like.png' alt='likeButton' />
+            {heart ? (
+              <img
+                onClick={handleHeartClick}
+                value={heart}
+                id='comment-like-btn'
+                src='images/like.png'
+                alt='likeButton'
+              />
+            ) : (
+              <img
+                onClick={handleHeartClick}
+                value={heart}
+                id='comment-like-btn'
+                src='images/liked.png'
+                alt='likeButton'
+              />
+            )}
           </div>
         </li>
       </ul>

@@ -18,7 +18,6 @@ const Comments = () => {
     e.preventDefault();
     e.stopPropagation();
 
-    console.log(comment);
     setCommentList((commentList) => [...commentList, comment]);
     setComment('');
   };
