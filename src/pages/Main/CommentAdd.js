@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import CommentEdit from './CommentEdit';
+
 const CommentAdd = ({ comment }) => {
   const [heart, setHeart] = useState(true);
 
@@ -7,7 +9,10 @@ const CommentAdd = ({ comment }) => {
     return setHeart(!heart);
   };
 
-  const onClickEdit = (e) => {};
+  const onClickEdit = (e) => {
+    // editComment(comment);
+    return <CommentEdit comment={comment} />;
+  };
 
   const onClickDelete = (e) => {
     return e.target.parentElement.parentElement.remove();

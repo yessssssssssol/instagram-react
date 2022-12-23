@@ -1,18 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
-  // const LoginValid = () => {
-  //   if ()
-  // }
+  const navigate = useNavigate();
+
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [active, setActive] = useState(false);
+
+  const goToMain = () => {
+    if (id.includes('@') && password.length >= 5) {
+      navigate('/main');
+    } else {
+      alert('가입된 회원이 아닙니다. 회원가입을 먼저 해주세요.');
+    }
+  };
+
+  const saveUserId = (e) => {
+    setId(e.target.value);
+  };
+  const saveUserPassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const validLogin = () => {
+    return id.includes('@') && password.length >= 5
+      ? setActive(true)
+      : setActive(false);
+  };
+
   return (
     <div>
       <div id='loginForm'>
         <div id='title'>westagram</div>
         <div id='loginInput'>
-          <input id='loginId' placeholder='전화번호, 사용자 이름 또는 이메일' />
-          <input id='loginPassword' placeholder='비밀번호' />
-          <button type='button' id='loginBtn'>
+          <input
+            id='loginId'
+            placeholder='전화번호, 사용자 이름 또는 이메일'
+            onChange={saveUserId}
+            onKeyup={validLogin}
+            value={id}
+          />
+          <input
+            id='loginPassword'
+            placeholder='비밀번호'
+            onChange={saveUserPassword}
+            onKeyUp={validLogin}
+            value={password}
+          />
+          <button
+            type='button'
+            onClick={goToMain}
+            id={active ? 'loginBtn' : 'loginedBtn'}
+            disabled={id === '' || password === '' ? true : false}
+          >
             로그인
           </button>
         </div>
