@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
 
-import CommentEdit from './CommentEdit';
-
-const CommentAdd = ({ comment }) => {
+const CommentAdd = ({ comment, index, editCommentList }) => {
   const [heart, setHeart] = useState(true);
+  const [editing, setEditing] = useState(true);
+  const [editCommentValue, setEditCommentValue] = useState('');
 
+  console.log(editing);
+
+  const editComment = (e) => {
+    setEditCommentValue(e.target.value);
+  };
   const handleHeartClick = () => {
     return setHeart(!heart);
   };
 
   const onClickEdit = (e) => {
-    // editComment(comment);
-    return <CommentEdit comment={comment} />;
+    setEditing(!editing);
   };
 
   const onClickDelete = (e) => {
     return e.target.parentElement.parentElement.remove();
+  };
+
+  const onSubmit = (index, editCommentValue) => (e) => {
+    e.preventDefault();
+    setEditing(true);
+    editCommentList(index, editCommentValue);
   };
 
   return (
@@ -24,35 +34,55 @@ const CommentAdd = ({ comment }) => {
         <li className='comment-list'>
           <div className='comment-list-form'>
             <span className='comment-list-id'> hellohaileyworld </span>
-            <span className='comment-list-item'>{comment}</span>
-          </div>
-          <div>
-            <button onClick={onClickEdit} type='button' className='edit-button'>
-              edit
-            </button>
-            <button
-              onClick={onClickDelete}
-              type='button'
-              className='remove-button'
-            >
-              x
-            </button>
-            {heart ? (
-              <img
-                onClick={handleHeartClick}
-                value={heart}
-                id='comment-like-btn'
-                src='images/like.png'
-                alt='likeButton'
-              />
+            {editing ? (
+              <div>
+                <span className='comment-list-item'>{comment}</span>
+                <div>
+                  <button
+                    onClick={onClickEdit}
+                    type='button'
+                    className='edit-button'
+                  >
+                    edit
+                  </button>
+                  <button
+                    onClick={onClickDelete}
+                    type='button'
+                    className='remove-button'
+                  >
+                    x
+                  </button>
+                  {heart ? (
+                    <img
+                      onClick={handleHeartClick}
+                      value={heart}
+                      id='comment-like-btn'
+                      src='images/like.png'
+                      alt='likeButton'
+                    />
+                  ) : (
+                    <img
+                      onClick={handleHeartClick}
+                      value={heart}
+                      id='comment-like-btn'
+                      src='images/liked.png'
+                      alt='likedButton'
+                    />
+                  )}
+                </div>
+              </div>
             ) : (
-              <img
-                onClick={handleHeartClick}
-                value={heart}
-                id='comment-like-btn'
-                src='images/liked.png'
-                alt='likedButton'
-              />
+              <div>
+                <input
+                  className='comment-list-item'
+                  placeholder={comment}
+                  onChange={editComment}
+                  value={editCommentValue}
+                />
+                <button onClick={onSubmit(index, editCommentValue)}>
+                  수정한다
+                </button>
+              </div>
             )}
           </div>
         </li>

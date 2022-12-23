@@ -5,12 +5,23 @@ const Comments = () => {
   const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]);
 
+  const editCommentList = (index, value) => {
+    const next = commentList.map((comment, i) => {
+      if (index === i) return value;
+      return comment;
+    });
+
+    console.log(next);
+    setCommentList(next);
+  };
+
   const onChange = (e) => {
     setComment(e.target.value);
   };
 
   const onKeyDown = (e) => {
     if (e.key === 'Enter') {
+      createComment(e);
     }
   };
 
@@ -23,9 +34,14 @@ const Comments = () => {
     setComment('');
   };
   return (
-    <form id='commentForm'>
+    <div id='commentForm'>
       {commentList.map((comment, index) => (
-        <CommentAdd key={index} comment={comment} />
+        <CommentAdd
+          key={`${index}${comment}`}
+          comment={comment}
+          index={index}
+          editCommentList={editCommentList}
+        />
       ))}
       <div id='commentInputForm'>
         <input
@@ -39,7 +55,7 @@ const Comments = () => {
           게시
         </button>
       </div>
-    </form>
+    </div>
   );
 };
 

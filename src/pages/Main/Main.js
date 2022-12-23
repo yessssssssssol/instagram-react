@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MainSide from './MainSide';
 import Nav from '../../components/Nav/Nav';
 import Comments from './Comments';
 import './Main.scss';
 
 const Main = () => {
+  const [heart, setHeart] = useState(true);
+  const [like, setLike] = useState('368');
+
+  const handleHeartClick = (e, like) => {
+    return setHeart(!heart);
+    setLike('like + 1');
+  };
   return (
     <div>
       <Nav />
@@ -26,7 +33,19 @@ const Main = () => {
                 <img src='images/main.jpeg' alt='firstmeal' id='feedImg' />
                 <div>
                   <div id='articleCenterIcon-L'>
-                    <img src='images/like.png' alt='likeBtn' />
+                    {heart ? (
+                      <img
+                        onClick={handleHeartClick}
+                        src='images/like.png'
+                        alt='likeBtn'
+                      />
+                    ) : (
+                      <img
+                        onClick={handleHeartClick}
+                        src='images/liked.png'
+                        alt='likeBtn'
+                      />
+                    )}
                     <img src='images/comment.png' alt='commentBtn' />
                     <img src='images/dm.png' alt='img' />
                   </div>
@@ -36,7 +55,7 @@ const Main = () => {
                 </div>
               </div>
               <div id='articleBottom'>
-                <div id='like'>좋아요 368개</div>
+                <div id='like'>{like}개</div>
                 <div id='content'>
                   <div className='westagramId'>hi._.hailey</div>
                   <p>첫 날 시이작-!</p>

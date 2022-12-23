@@ -30,6 +30,8 @@ const Login = () => {
       : setActive(false);
   };
 
+  console.log(active);
+
   return (
     <div>
       <div id='loginForm'>
@@ -39,7 +41,7 @@ const Login = () => {
             id='loginId'
             placeholder='전화번호, 사용자 이름 또는 이메일'
             onChange={saveUserId}
-            onKeyup={validLogin}
+            onKeyUp={validLogin}
             value={id}
           />
           <input
@@ -52,7 +54,7 @@ const Login = () => {
           <button
             type='button'
             onClick={goToMain}
-            id={active ? 'loginBtn' : 'loginedBtn'}
+            id={active ? 'loginedBtn' : 'loginBtn'}
             disabled={id === '' || password === '' ? true : false}
           >
             로그인

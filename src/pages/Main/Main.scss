@@ -145,6 +145,8 @@ footer {
   font-size: 20px;
   font-weight: bolder;
   font-family: 'Dancing Script', cursive;
+  border: 0px;
+  background-color: white;
 }
 
 #threeDot {
@@ -191,7 +193,7 @@ footer {
 }
 
 #commentForm input {
-  width: 380px;
+  // width: 380px;
   border: 0px;
 }
 
@@ -216,7 +218,7 @@ footer {
 
 #commentInputForm input {
   margin-left: 10px;
-  width: 410px;
+  // width: 410px;
 }
 #commentInputForm button {
   margin-right: 10px;
@@ -231,6 +233,7 @@ footer {
   font-size: 14px;
   font-weight: normal;
   margin-left: 10px;
+  width: auto;
 }
 
 .story-list {

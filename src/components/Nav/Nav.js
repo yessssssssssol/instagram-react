@@ -1,14 +1,21 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../Nav/Nav.scss';
 import '../../pages/Main/Main.scss';
 
 const Nav = () => {
+  const navigate = useNavigate();
+  const goToHome = () => {
+    navigate('/');
+  };
+
   return (
     <nav>
       <div id='navLeft'>
         <i className='fa-brands fa-instagram fa-xl'></i> <div>|</div>
-        <p id='logo'>Westagram</p>
+        <button id='logo' onClick={goToHome}>
+          Westagram
+        </button>
       </div>
       <div id='navCenter'>
         <input type='input' placeholder='검색' />
