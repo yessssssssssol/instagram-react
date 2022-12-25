@@ -10,8 +10,6 @@ const Comments = () => {
       if (index === i) return value;
       return comment;
     });
-
-    console.log(next);
     setCommentList(next);
   };
 
@@ -28,6 +26,9 @@ const Comments = () => {
   const createComment = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    if (comment === '') {
+      return;
+    }
 
     setCommentList([...commentList, comment]);
     setComment('');
