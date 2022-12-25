@@ -29,7 +29,6 @@ const Comments = () => {
     e.preventDefault();
     e.stopPropagation();
 
-    // setCommentList((commentList) => [...commentList, comment]);
     setCommentList([...commentList, comment]);
     setComment('');
   };

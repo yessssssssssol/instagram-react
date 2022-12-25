@@ -5,8 +5,6 @@ const CommentAdd = ({ comment, index, editCommentList }) => {
   const [editing, setEditing] = useState(true);
   const [editCommentValue, setEditCommentValue] = useState('');
 
-  console.log(editing);
-
   const editComment = (e) => {
     setEditCommentValue(e.target.value);
   };
@@ -19,7 +17,7 @@ const CommentAdd = ({ comment, index, editCommentList }) => {
   };
 
   const onClickDelete = (e) => {
-    return e.target.parentElement.parentElement.remove();
+    return e.target.parentElement.parentElement.parentElement.remove();
   };
 
   const onSubmit = (index, editCommentValue) => (e) => {
@@ -80,7 +78,7 @@ const CommentAdd = ({ comment, index, editCommentList }) => {
                   value={editCommentValue}
                 />
                 <button onClick={onSubmit(index, editCommentValue)}>
-                  수정한다
+                  수정완료
                 </button>
               </div>
             )}
