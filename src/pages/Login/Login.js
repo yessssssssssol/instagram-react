@@ -30,7 +30,9 @@ const Login = () => {
       : setActive(false);
   };
 
-  console.log(active);
+  const onForgetAlert = () => {
+    alert('id에 @를 포함하고, 비밀번호는 5자리 이상 입력해보세요:)');
+  };
 
   return (
     <div>
@@ -60,7 +62,9 @@ const Login = () => {
             로그인
           </button>
         </div>
-        <div id='forgetPassword'>비밀번호를 잊으셨나요?</div>
+        <div id='forgetPassword' onClick={onForgetAlert}>
+          비밀번호를 잊으셨나요?
+        </div>
       </div>
       <script type='module' src='./js/login.js'></script>
     </div>

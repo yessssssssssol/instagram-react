@@ -7,14 +7,12 @@ import './styles/Reset.scss';
 
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
-import Signup from './pages/Signup/Signup';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
         <Route path='/main' element={<Main />} />
       </Routes>
     </BrowserRouter>
