@@ -154,11 +154,11 @@ footer {
   margin-right: 10px;
   color: #262626;
 }
-.westagramId {
+.instagramId {
   font-size: 14px;
   font-weight: bolder;
 }
-.westagramLocate {
+.instagramLocate {
   font-size: 12px;
 }
 
@@ -193,7 +193,7 @@ footer {
 }
 
 #commentForm input {
-  // width: 380px;
+  width: 100%;
   border: 0px;
 }
 
@@ -218,10 +218,11 @@ footer {
 
 #commentInputForm input {
   margin-left: 10px;
-  // width: 410px;
+  width: 100%;
 }
 #commentInputForm button {
   margin-right: 10px;
+  width: 50px;
 }
 
 .comment-list-id {

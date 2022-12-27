@@ -12,8 +12,8 @@ const MainSide = () => {
       <div id='main-right-top' className='profile'>
         <img className='profile-img' src='/images/1.jpeg' alt='profileIMG' />
         <div className='id-location'>
-          <div className='westagramId'>hellohaileyworld</div>
-          <div className='westagramLocate'>Frontend 개발자</div>
+          <div className='instagramId'>hellohaileyworld</div>
+          <div className='instagramLocate'>Frontend 개발자</div>
         </div>
       </div>
 
@@ -30,8 +30,8 @@ const MainSide = () => {
               alt='userIMG'
             />
             <div className='id-location'>
-              <div className='westagramId'>dlwldms</div>
-              <div className='westagramLocate'>가수</div>
+              <div className='instagramId'>dlwldms</div>
+              <div className='instagramLocate'>가수</div>
             </div>
           </div>
           {follow ? (
@@ -52,7 +52,7 @@ const MainSide = () => {
           <br />
           약관・위치・언어
         </div>
-        <div id='footer-info-bottom'>© 2022 INSTAGRAM FROM META</div>
+        <div id='footer-info-bottom'>© 2022 instagram FROM META</div>
       </footer>
     </div>
   );
