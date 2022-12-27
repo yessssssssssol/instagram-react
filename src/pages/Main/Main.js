@@ -1,69 +1,69 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MainSide from './MainSide';
-import Nav from '../../components/Nav/Nav';
-import Comments from './Comments';
+import FeedList from './FeedList';
+import { useNavigate } from 'react-router-dom';
+
+import '../../components/Nav/Nav.scss';
 import './Main.scss';
 
 const Main = () => {
-  const [heart, setHeart] = useState(true);
-  const [like, setLike] = useState('368');
+  const [userList, setUserList] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState('');
 
-  const handleHeartClick = (e, like) => {
-    return setHeart(!heart);
-    setLike('like + 1');
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((result) => result.json())
+      .then((data) => setUserList(data));
+  }, []);
+
+  const searchUser = (e) => {
+    setSearchKeyword(e.target.value);
   };
+
+  const filteredUser = userList.filter((user) =>
+    user.name.toLowerCase().includes(searchKeyword.toLowerCase())
+  );
+
+  const navigate = useNavigate();
+  const goToHome = () => {
+    navigate('/');
+  };
+
   return (
     <div>
-      <Nav />
+      <nav>
+        <div id='navLeft'>
+          <i className='fa-brands fa-instagram fa-xl'></i> <div>|</div>
+          <button id='logo' onClick={goToHome}>
+            Westagram
+          </button>
+        </div>
+        <div id='navCenter'>
+          <input
+            value={searchKeyword}
+            onChange={searchUser}
+            type='input'
+            placeholder='검색'
+          />
+        </div>
+        <div id='navRight'>
+          <img
+            src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png'
+            alt='explore'
+          />
+          <img
+            src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
+            alt='heart'
+          />
+          <img
+            src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png'
+            alt='profile'
+          />
+        </div>
+      </nav>
       <div>
         <main>
-          <div id='feeds'>
-            <article>
-              <div id='articleTop'>
-                <div id='articleTopLeft'>
-                  <img src='images/profile.jpeg' alt='profileImg' />
-                  <div className='id-location'>
-                    <div className='westagramId'>hi._.hailey</div>
-                    <div className='westagramLocate'>wework2호점</div>
-                  </div>
-                </div>
-                <div id='threeDot'>•••</div>
-              </div>
-              <div id='articleCenter'>
-                <img src='images/main.jpeg' alt='firstmeal' id='feedImg' />
-                <div>
-                  <div id='articleCenterIcon-L'>
-                    {heart ? (
-                      <img
-                        onClick={handleHeartClick}
-                        src='images/like.png'
-                        alt='likeBtn'
-                      />
-                    ) : (
-                      <img
-                        onClick={handleHeartClick}
-                        src='images/liked.png'
-                        alt='likeBtn'
-                      />
-                    )}
-                    <img src='images/comment.png' alt='commentBtn' />
-                    <img src='images/dm.png' alt='img' />
-                  </div>
-                  <div id='articleCenterIcon-R'>
-                    <img src='images/bookmark.png' alt='bookmark' />
-                  </div>
-                </div>
-              </div>
-              <div id='articleBottom'>
-                <div id='like'>{like}개</div>
-                <div id='content'>
-                  <div className='westagramId'>hi._.hailey</div>
-                  <p>첫 날 시이작-!</p>
-                </div>
-              </div>
-              <Comments />
-            </article>
-          </div>
+          <FeedList userList={filteredUser} />
           <MainSide />
         </main>
       </div>

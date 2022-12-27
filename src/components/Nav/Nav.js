@@ -23,7 +23,7 @@ const Nav = () => {
       <div id='navRight'>
         <img
           src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png'
-          alt='exlore'
+          alt='explore'
         />
         <img
           src='https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png'
