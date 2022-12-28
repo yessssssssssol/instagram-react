@@ -4,11 +4,11 @@ import Comments from './Comments';
 const Feed = ({ user }) => {
   const { name, username, email, id, address } = user;
   const [heart, setHeart] = useState(true);
-  const [like, setLike] = useState('368');
+  const [like, setLike] = useState(368);
 
-  const handleHeartClick = (e, like) => {
-    return setHeart(!heart);
-    // setLike('like + 1');
+  const handleHeartClick = () => {
+    setHeart(!heart);
+    setLike(like + 1);
   };
   return (
     <div id='feeds'>
@@ -56,7 +56,9 @@ const Feed = ({ user }) => {
           </div>
         </div>
         <div id='articleBottom'>
-          <div id='like'>{like}개</div>
+          <div id='like' value={like}>
+            {like}개
+          </div>
           <div id='content'>
             <div className='instagramId'>{username}</div>
             <p>
