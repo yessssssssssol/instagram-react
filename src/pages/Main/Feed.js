@@ -29,7 +29,7 @@ const Feed = ({ user }) => {
         <div id='articleCenter'>
           <img
             src={`https://robohash.org/${id}?set=set2&size=180x180`}
-            alt='firstmeal'
+            alt='feedImg'
             id='feedImg'
           />
           <div>
