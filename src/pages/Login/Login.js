@@ -11,6 +11,11 @@ const Login = () => {
 
   const goToMain = () => {
     if (id.includes('@') && password.length >= 5) {
+      fetch('http://10.58.52.67:3000/users')
+        // fetch('http://10.58.52.174:3000/login')
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+
       navigate('/main');
     } else {
       alert('가입된 회원이 아닙니다. 회원가입을 먼저 해주세요.');
